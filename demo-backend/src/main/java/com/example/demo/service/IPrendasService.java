@@ -61,6 +61,7 @@ public interface IPrendasService {
 	 * @return el id del usuario modificado.
 	 * @since 0.0.5
 	 */
-	Integer editPrendas(PrendasDTO editPrendasRequest);
+
+//	Integer editPrendas(PrendasDTO editPrendasRequest);
 	
 }

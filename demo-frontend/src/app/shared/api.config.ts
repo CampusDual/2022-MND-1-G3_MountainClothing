@@ -16,4 +16,11 @@ export const API_CONFIG = {
   editContact: environment.contactsBaseUrl + '/editContact',
   deleteContact: environment.contactsBaseUrl + '/deleteContact',
 
+  // Contacts API
+  getPrendas: environment.prendasBaseUrl + '/getPrendas',
+  getPrenda: environment.prendasBaseUrl + '/getPrendas',
+  createPrendas: environment.prendasBaseUrl + '/createPrendas',
+  editPrendas: environment.prendasBaseUrl + '/editPrendas',
+  deletePrendas: environment.prendasBaseUrl + '/deletePrendas',
+
 };

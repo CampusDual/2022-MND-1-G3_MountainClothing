@@ -83,11 +83,12 @@ public class PrendasServiceImpl extends AbstractDemoService implements IPrendasS
 		return PrendasMapper.INSTANCE.prendasToPrendasDtoList(prendas);
 	}
 
-	@Override
-	public Integer editPrendas(PrendasDTO editPrendasRequest) {
-		Prendas prendas = PrendasMapper.INSTANCE.prendasDTOtoPrendas(editPrendasRequest);
-		Prendas editPrendas = prendasRepository.save(fromEditPrendasRequest(prendas));
-		return editPrendas.getId();
-	}
+
+//	@Override
+//	public Integer editPrendas(PrendasDTO editPrendasRequest) {
+//		Prendas prendas = PrendasMapper.INSTANCE.prendasDTOtoPrendas(editPrendasRequest);
+//		Prendas editPrendas = prendasRepository.save(fromEditPrendasRequest(prendas));
+//		return editPrendas.getId();
+//	}
 
 }
