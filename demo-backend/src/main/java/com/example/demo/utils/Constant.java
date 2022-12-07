@@ -31,6 +31,7 @@ public class Constant {
 	
 	public static final String NOMBRE_REQUIRED = "NOMBRE_REQUIRED";
 	public static final String PRECIO_REQUIRED = "PRECIO_REQUIRED";
+	public static final String COLOR_REQUIRED = "COLOR_REQUIRED";
 	public static final String PRENDAS_REQUIRED = "PRENDAS_REQUIRED";
 	public static final String SEXO_REQUIRED = "SEXO_REQUIRED";
 	public static final String TALLAS_REQUIRED = "TALLAS_REQUIRED";
