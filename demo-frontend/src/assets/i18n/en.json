@@ -13,7 +13,8 @@
   "menu": {
     "home": "Home",
     "contacts": "Contacts",
-    "logout": "Logout"
+    "logout": "Logout",
+    "prendas": "Clothes"
   },
   "language": {
     "spanish": "Spanish",
@@ -27,6 +28,15 @@
       "surname2": "Second Surname",
       "phone": "Phone",
       "email": "E-Mail"
+    },
+    "prendas":{
+      "nombre": "Name",
+      "tallas":"Size",
+      "sexo":"Sex",
+      "prendas":"Clothes",
+      "color":"Color",
+      "precio":"Price",
+      "unidades":"Units"
     }
   },
   "form": {

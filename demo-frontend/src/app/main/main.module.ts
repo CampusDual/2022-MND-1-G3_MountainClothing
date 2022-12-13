@@ -38,6 +38,8 @@ import { FilterItemDirective } from './directives/filter-item.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxChartsModule }from '@swimlane/ngx-charts';
 
+
+
 @NgModule({
   declarations: [
     MainHomeComponent,

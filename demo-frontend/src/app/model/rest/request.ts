@@ -1,4 +1,5 @@
 import { Contact } from '../contact';
+import { Prendas } from '../prendasweb';
 
 export class QuerySortPaginationRequest {
   query: string;
@@ -38,5 +39,32 @@ export class EditContactRequest extends CreateContactRequest {
   constructor(contact: Contact) {
     super(contact);
     this.id = contact.id;
+  }
+}
+export class CreatePrendaRequest {
+  nombre: string;
+  tallas: string;
+  sexo: string;
+  prendas: string;
+  color: string;
+  precio: number;
+  unidades: number;
+
+  constructor(prenda: Prendas) {
+    this.nombre = prenda.nombre;
+    this.tallas = prenda.tallas;
+    this.sexo = prenda.sexo;
+    this.prendas = prenda.prendas;
+    this.color = prenda.color;
+    this.precio = prenda.precio;
+    this.unidades = prenda.unidades;
+  }
+}
+export class EditPrendaRequest extends CreatePrendaRequest {
+  id: number;
+
+  constructor(prenda: Prendas) {
+    super(prenda);
+    this.id = prenda.id;
   }
 }

@@ -36,6 +36,12 @@ export class NavComponent implements OnInit, OnDestroy {
       title: 'menu.contacts',
       allowedRoles: ['CONTACTS']
     },
+    {
+      icon: 'people',
+      route: 'prendas',
+      title: 'menu.prendas',
+      allowedRoles: ['PRENDAS']
+    },
   ];
 
   protected subscription: Subscription;
