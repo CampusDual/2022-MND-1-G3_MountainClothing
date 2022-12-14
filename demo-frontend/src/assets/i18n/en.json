@@ -33,7 +33,7 @@
       "nombre": "Name",
       "tallas":"Size",
       "sexo":"Sex",
-      "prendas":"Clothes",
+      "prendas":"Type",
       "color":"Color",
       "precio":"Price",
       "unidades":"Units"

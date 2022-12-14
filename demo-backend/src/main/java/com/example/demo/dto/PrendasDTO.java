@@ -12,7 +12,7 @@ public class PrendasDTO {
 	private String nombre;
 
 	@NotNull(message = Constant.PRECIO_REQUIRED)
-	private String precio;
+	private Integer precio;
 	
 	@NotEmpty(message = Constant.COLOR_REQUIRED)
 	private String color;
@@ -24,7 +24,7 @@ public class PrendasDTO {
 	private String sexo;
 
 	@NotNull(message = Constant.TALLAS_REQUIRED)
-	private Integer tallas;
+	private String tallas;
 
 	@NotNull(message = Constant.UNIDADES_REQUIRED)
 	private Integer unidades;
@@ -58,11 +58,11 @@ public class PrendasDTO {
 		this.nombre = nombre;
 	}
 
-	public String getPrecio() {
+	public Integer getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(String precio) {
+	public void setPrecio(Integer precio) {
 		this.precio = precio;
 	}
 
@@ -90,11 +90,11 @@ public class PrendasDTO {
 		this.sexo = sexo;
 	}
 
-	public Integer getTallas() {
+	public String getTallas() {
 		return tallas;
 	}
 
-	public void setTallas(Integer tallas) {
+	public void setTallas(String tallas) {
 		this.tallas = tallas;
 	}
 

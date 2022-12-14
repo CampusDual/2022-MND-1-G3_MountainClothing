@@ -62,7 +62,7 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
       this.fields.map((field) => new AnyField(field)),
       0,
       20,
-      'nombre'
+      'color'
     );
     this.dataSource.getPrendas(pageFilter);
   }

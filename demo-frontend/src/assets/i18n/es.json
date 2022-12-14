@@ -14,7 +14,7 @@
     "home": "Home",
     "contacts": "Contactos",
     "logout": "Cerrar sesión",
-    "clothes": "Prendas"
+    "prendas": "Prendas"
   },
   "language": {
     "spanish": "Español",
@@ -33,7 +33,7 @@
       "nombre": "Nombre",
       "tallas": "Talla",
       "sexo": "Sexo",
-      "prendas": "Prendas",
+      "prendas": "Tipo",
       "color": "Color",
       "precio": "Precio",
       "unidades": "Unidades"
