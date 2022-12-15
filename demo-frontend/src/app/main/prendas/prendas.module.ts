@@ -16,11 +16,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginaprendasComponent } from './paginaprendas/paginaprendas.component';
+import { EditPrendasComponent } from './edit-prendas/edit-prendas.component';
 
 
 @NgModule({
   declarations: [
     PaginaprendasComponent,
+    EditPrendasComponent,
   ],
   imports: [
     CommonModule,
