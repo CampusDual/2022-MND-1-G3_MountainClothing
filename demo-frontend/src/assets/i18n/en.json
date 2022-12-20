@@ -30,6 +30,7 @@
       "email": "E-Mail"
     },
     "prendas":{
+      "id": "Id",
       "nombre": "Name",
       "tallas":"Size",
       "sexo":"Sex",
@@ -40,7 +41,8 @@
     }
   },
   "form": {
-    "contact": "Contact"
+    "contact": "Contact",
+    "prendas": "Enter New Clothe Data"
   },
   "button": {
     "cancel": "Cancel",

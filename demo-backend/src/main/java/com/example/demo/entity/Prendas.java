@@ -53,7 +53,7 @@ public class Prendas implements Serializable{
 		this.unidades = unidades;
 	}
 
-	public Prendas(Integer id, String nombre, String tallas, String sexo, String prendas, String color, Integer precio, Integer unidades) {
+	public Prendas(Integer id, String nombre, Integer precio, String sexo, String prendas, String color, String tallas, Integer unidades) {
 		this(nombre, tallas, sexo, prendas, color, precio, unidades);
 		this.id = id;
 	}

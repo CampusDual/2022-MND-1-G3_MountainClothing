@@ -62,6 +62,6 @@ public interface IPrendasService {
 	 * @since 0.0.5
 	 */
 
-//	Integer editPrendas(PrendasDTO editPrendasRequest);
+	Integer editPrendas(PrendasDTO editPrendasRequest);
 	
 }

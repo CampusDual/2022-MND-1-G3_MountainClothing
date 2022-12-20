@@ -30,6 +30,7 @@
       "email": "E-Mail"
     },
     "prendas":{
+      "id": "Id",
       "nombre": "Nombre",
       "tallas": "Talla",
       "sexo": "Sexo",
@@ -41,7 +42,8 @@
     }
   },
   "form": {
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "prendas": "Introduzca Datos Nueva Prenda"
   },
   "button": {
     "cancel": "Cancelar",

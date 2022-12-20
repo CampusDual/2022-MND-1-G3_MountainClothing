@@ -36,6 +36,16 @@ public class Constant {
 	public static final String SEXO_REQUIRED = "SEXO_REQUIRED";
 	public static final String TALLAS_REQUIRED = "TALLAS_REQUIRED";
 	public static final String UNIDADES_REQUIRED = "UNIDADES_REQUIRED";
+	public static final String PRENDAS_NOT_EXISTS ="PRENDAS_NOT_EXISTS";
+	
+	//Prendas message
+	public static final String PRENDAS_CREATE_SUCCESS ="PRENDAS_CREATE_SUCCESS";
+	public static final String PRENDAS_NOT_CREATED = "PRENDAS_NOT_CREATED";
+	public static final String PRENDAS_EDIT_SUCCESS ="PRENDAS_EDIT_SUCCESS";
+	public static final String PRENDAS_NOT_EDIT ="PRENDAS_NOT_EDIT";
+	public static final String PRENDAS_DELETE_SUCCESS ="PRENDAS_DELETE_SUCCESS";
+	public static final String PRENDAS_NOT_DELETE ="PRENDAS_NOT_DELETE";
+	
 	
 	//User message
 	public static final String USER_CREATE_SUCCESS ="USER_CREATE_SUCCESS";

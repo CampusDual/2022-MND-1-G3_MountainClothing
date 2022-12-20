@@ -1,24 +1,39 @@
 package com.example.demo.rest.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.borjaglez.springify.repository.filter.impl.AnyPageFilter;
 import com.example.demo.dto.PrendasDTO;
+import com.example.demo.entity.enums.ResponseCodeEnum;
 import com.example.demo.exception.DemoException;
 import com.example.demo.rest.response.DataSourceRESTResponse;
 import com.example.demo.service.IPrendasService;
+import com.example.demo.utils.Constant;
 
 @CrossOrigin(origins = { "http://localhost:4201" })
 @RestController
@@ -37,33 +52,33 @@ public class PrendasController {
 	 * @return el contacto cuyo id sea el pasado por parámetros.
 	 */
 
-//	@GetMapping("/getContact")
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
-//	public ResponseEntity<?> getContact(@RequestParam(value = "id") Integer id) {
-//		LOGGER.info("getContact in progress...");
-//		ContactDTO contact = null;
-//		Map<String, Object> response = new HashMap<>();
-//		ResponseEntity<?> re = null;
-//		try {
-//			contact = prendasServices.getContact(id);
-//			if (contact == null) {
-//				response.put(Constant.MESSAGE, Constant.CONTACT_NOT_EXISTS);
-//				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//				re = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-//			} else {
-//				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
-//				re = new ResponseEntity<>(contact, HttpStatus.OK);
-//			}
-//		} catch (DataAccessException e) {
-//			LOGGER.error(e.getMessage());
-//			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//			response.put(Constant.MESSAGE, Constant.DATABASE_QUERY_ERROR);
-//			response.put(Constant.ERROR, e.getMessage());
-//			re = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
-//		}
-//		LOGGER.info("getContact is finished...");
-//		return re;
-//	}
+	@GetMapping("/getPrendas")
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
+	public ResponseEntity<?> getPrendas(@RequestParam(value = "id") Integer id) {
+		LOGGER.info("getPrendas in progress...");
+		PrendasDTO prendas = null;
+		Map<String, Object> response = new HashMap<>();
+		ResponseEntity<?> re = null;
+		try {
+			prendas = prendasService.getPrendas(id);
+			if (prendas == null) {
+				response.put(Constant.MESSAGE, Constant.PRENDAS_NOT_EXISTS);
+				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+				re = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+			} else {
+				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
+				re = new ResponseEntity<>(prendas, HttpStatus.OK);
+			}
+		} catch (DataAccessException e) {
+			LOGGER.error(e.getMessage());
+			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+			response.put(Constant.MESSAGE, Constant.DATABASE_QUERY_ERROR);
+			response.put(Constant.ERROR, e.getMessage());
+			re = new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+		}
+		LOGGER.info("getPrendas is finished...");
+		return re;
+	}
 
 
 
@@ -77,8 +92,8 @@ public class PrendasController {
 	 */
 	@PostMapping(path = "/getPrendas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
-	public @ResponseBody DataSourceRESTResponse<List<PrendasDTO>> getContacts(@RequestBody AnyPageFilter pageFilter) {
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
+	public @ResponseBody DataSourceRESTResponse<List<PrendasDTO>> getPrendas(@RequestBody AnyPageFilter pageFilter) {
 		LOGGER.info("getPrendas in progress...");
 		DataSourceRESTResponse<List<PrendasDTO>> dres = new DataSourceRESTResponse<>();
 		try {
@@ -89,7 +104,7 @@ public class PrendasController {
 			dres.setResponseMessage(e.getMessage());
 		}
 
-		LOGGER.info("getContacts is finished...");
+		LOGGER.info("getPrendas is finished...");
 
 		return dres;
 	}
@@ -103,7 +118,7 @@ public class PrendasController {
 	 */
 	@GetMapping(path = "/getPrendas")
 
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
 	public @ResponseBody List<PrendasDTO> findAll() {
 		LOGGER.info("findAll in progress...");
 		return prendasService.findAll();
@@ -117,48 +132,48 @@ public class PrendasController {
 	 * @since 0.0.5
 	 */
 
-//	@PostMapping(path = "/createContact")
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
-//	public ResponseEntity<?> createContact(@Valid @RequestBody ContactDTO createContactRequest, BindingResult result) {
-//		LOGGER.info("createContact in progress...");
-//		ContactDTO contactNew = null;
-//		Map<String, Object> response = new HashMap<>();
-//		HttpStatus status = HttpStatus.CREATED;
-//		String message = Constant.CONTACT_CREATE_SUCCESS;
-//		if (!result.hasErrors()) {
-//			try {
-//				contactNew = prendasServices.createContact(createContactRequest);
-//				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
-//			} catch (DataAccessException e) {
-//				if (e.getMostSpecificCause().getMessage().contains(Constant.PHONE_ERROR)) {
-//					message = Constant.PHONE_ALREADY_EXISTS;
-//					status = HttpStatus.OK;
-//				} else {
-//					message = Constant.DATABASE_QUERY_ERROR;
-//					status = HttpStatus.BAD_REQUEST;
-//				}
-//
-//				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//				response.put(Constant.ERROR, e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-//
-//			}
-//			response.put("contacto", contactNew);
-//		} else {
-//			List<String> errors = new ArrayList<>();
-//			for (FieldError error : result.getFieldErrors()) {
-//				errors.add(error.getDefaultMessage());
-//			}
-//			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.WARNING.getValue());
-//			message = Constant.CONTACT_NOT_CREATED;
-//			response.put(Constant.ERROR, errors);
-//			status = HttpStatus.BAD_REQUEST;
-//		}
-//
-//		LOGGER.info("createContact is finished...");
-//		response.put(Constant.MESSAGE, message);
-//
-//		return new ResponseEntity<>(response, status);
-//	}
+	@PostMapping(path = "/createPrendas")
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
+	public ResponseEntity<?> createPrendas(@Valid @RequestBody PrendasDTO createPrendasRequest, BindingResult result) {
+		LOGGER.info("createPrendas in progress...");
+		PrendasDTO prendasNew = null;
+		Map<String, Object> response = new HashMap<>();
+		HttpStatus status = HttpStatus.CREATED;
+		String message = Constant.PRENDAS_CREATE_SUCCESS;
+		if (!result.hasErrors()) {
+			try {
+				prendasNew = prendasService.createPrendas(createPrendasRequest);
+				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
+			} catch (DataAccessException e) {
+				if (e.getMostSpecificCause().getMessage().contains(Constant.PHONE_ERROR)) {
+					message = Constant.PHONE_ALREADY_EXISTS;
+					status = HttpStatus.OK;
+				} else {
+					message = Constant.DATABASE_QUERY_ERROR;
+					status = HttpStatus.BAD_REQUEST;
+				}
+
+				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+				response.put(Constant.ERROR, e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+
+			}
+			response.put("prendas", prendasNew);
+		} else {
+			List<String> errors = new ArrayList<>();
+			for (FieldError error : result.getFieldErrors()) {
+				errors.add(error.getDefaultMessage());
+			}
+			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.WARNING.getValue());
+			message = Constant.PRENDAS_NOT_CREATED;
+			response.put(Constant.ERROR, errors);
+			status = HttpStatus.BAD_REQUEST;
+		}
+
+		LOGGER.info("createPrendas is finished...");
+		response.put(Constant.MESSAGE, message);
+
+		return new ResponseEntity<>(response, status);
+	}
 
 
 	/**
@@ -168,55 +183,55 @@ public class PrendasController {
 	 * @since 0.0.5
 	 */
 
-//	@PostMapping(path = "/editContact", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
-//	public ResponseEntity<Map<String, Object>> editContact(@Valid @RequestBody ContactDTO editContactRequest, BindingResult result) {
-//		LOGGER.info("editContact in progress...");
-//		int id = 0;
-//		ContactDTO contactOlder = prendasServices.getContact(editContactRequest.getId());
-//		Map<String, Object> response = new HashMap<>();
-//		HttpStatus status = HttpStatus.CREATED;
-//		String message = Constant.CONTACT_EDIT_SUCCESS;
-//		if (contactOlder != null) {
-//			if (!result.hasErrors()) {
-//				try {
-//					id = prendasServices.editContact(editContactRequest);
-//					response.put("contactid", id);
-//					response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
-//				} catch (DataAccessException e) {
-//					if (e.getMostSpecificCause().getMessage().contains(Constant.PHONE_ERROR)) {
-//						message = Constant.PHONE_ALREADY_EXISTS;
-//						status = HttpStatus.OK;
-//					} else {
-//						message = Constant.DATABASE_QUERY_ERROR;
-//						status = HttpStatus.BAD_REQUEST;
-//					}
-//					response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//					response.put(Constant.ERROR,
-//							e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-//				}
-//
-//			} else {
-//				List<String> errors = new ArrayList<>();
-//				for (FieldError error : result.getFieldErrors()) {
-//					errors.add(error.getDefaultMessage());
-//				}
-//				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.WARNING.getValue());
-//				message = Constant.CONTACT_NOT_EDIT;
-//				response.put(Constant.ERROR, errors);
-//				status = HttpStatus.OK;
-//			}
-//		} else {
-//			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//			message = Constant.ID_NOT_EXISTS;
-//			status = HttpStatus.BAD_REQUEST;
-//		}
-//
-//		response.put(Constant.MESSAGE, message);
-//		LOGGER.info("editContact is finished...");
-//		return new ResponseEntity<>(response, status);
-//
-//	}
+	@PostMapping(path = "/editPrendas", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
+	public ResponseEntity<Map<String, Object>> editPrendas(@Valid @RequestBody PrendasDTO editPrendasRequest, BindingResult result) {
+		LOGGER.info("editPrendas in progress...");
+		int id = 0;
+		PrendasDTO prendasOlder = prendasService.getPrendas(editPrendasRequest.getId());
+		Map<String, Object> response = new HashMap<>();
+		HttpStatus status = HttpStatus.CREATED;
+		String message = Constant.PRENDAS_EDIT_SUCCESS;
+		if (prendasOlder != null) {
+			if (!result.hasErrors()) {
+				try {
+					id = prendasService.editPrendas(editPrendasRequest);
+					response.put("prendasid", id);
+					response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
+				} catch (DataAccessException e) {
+					if (e.getMostSpecificCause().getMessage().contains(Constant.PHONE_ERROR)) {
+						message = Constant.PHONE_ALREADY_EXISTS;
+						status = HttpStatus.OK;
+					} else {
+						message = Constant.DATABASE_QUERY_ERROR;
+						status = HttpStatus.BAD_REQUEST;
+					}
+					response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+					response.put(Constant.ERROR,
+							e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+				}
+
+			} else {
+				List<String> errors = new ArrayList<>();
+				for (FieldError error : result.getFieldErrors()) {
+					errors.add(error.getDefaultMessage());
+				}
+				response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.WARNING.getValue());
+				message = Constant.PRENDAS_NOT_EDIT;
+				response.put(Constant.ERROR, errors);
+				status = HttpStatus.OK;
+			}
+		} else {
+			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+			message = Constant.ID_NOT_EXISTS;
+			status = HttpStatus.BAD_REQUEST;
+		}
+
+		response.put(Constant.MESSAGE, message);
+		LOGGER.info("editPrendas is finished...");
+		return new ResponseEntity<>(response, status);
+
+	}
 
 
 
@@ -227,26 +242,26 @@ public class PrendasController {
 	 * @since 0.0.5
 	 */
 
-//	@DeleteMapping("/deleteContact")
-//	@PreAuthorize("hasAnyAuthority('CONTACTS')")
-//	public ResponseEntity<?> deleteContact(@RequestParam(value = "id") Integer id) {
-//		LOGGER.info("deleteContact in progress...");
-//		Map<String, Object> response = new HashMap<>();
-//		HttpStatus status = HttpStatus.OK;
-//		String message = Constant.CONTACT_DELETE_SUCCESS;
-//		try {
-//			prendasServices.deleteContact(id);
-//			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
-//		} catch (DataAccessException e) {
-//			response.put(Constant.MESSAGE, Constant.DATABASE_QUERY_ERROR);
-//			response.put(Constant.ERROR, e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
-//			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
-//			status = HttpStatus.BAD_REQUEST;
-//			message = Constant.CONTACT_NOT_DELETE;
-//		}
-//		response.put(Constant.MESSAGE, message);
-//		LOGGER.info("deleteContact is finished...");
-//		return new ResponseEntity<>(response, status);
-//	}
+	@DeleteMapping("/deletePrendas")
+	@PreAuthorize("hasAnyAuthority('PRENDAS')")
+	public ResponseEntity<?> deletePrendas(@RequestParam(value = "id") Integer id) {
+		LOGGER.info("deletePrendas in progress...");
+		Map<String, Object> response = new HashMap<>();
+		HttpStatus status = HttpStatus.OK;
+		String message = Constant.PRENDAS_DELETE_SUCCESS;
+		try {
+			prendasService.deletePrendas(id);
+			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.OK.getValue());
+		} catch (DataAccessException e) {
+			response.put(Constant.MESSAGE, Constant.DATABASE_QUERY_ERROR);
+			response.put(Constant.ERROR, e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			response.put(Constant.RESPONSE_CODE, ResponseCodeEnum.KO.getValue());
+			status = HttpStatus.BAD_REQUEST;
+			message = Constant.PRENDAS_NOT_DELETE;
+		}
+		response.put(Constant.MESSAGE, message);
+		LOGGER.info("deletePrendas is finished...");
+		return new ResponseEntity<>(response, status);
+	}
 
 }
