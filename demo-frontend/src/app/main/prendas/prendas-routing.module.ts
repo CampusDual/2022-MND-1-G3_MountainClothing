@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'add', component: EditPaginaprendasComponent },
   { path: 'edit/:id', component: EditPaginaprendasComponent }
 
+
 ];
 
 @NgModule({

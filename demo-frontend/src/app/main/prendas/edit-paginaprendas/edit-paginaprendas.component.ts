@@ -31,6 +31,7 @@ export class EditPaginaprendasComponent implements OnInit {
     this.createFormGroup();
     this.idPrendas = this.route.snapshot.params['id'];
     if (this.idPrendas) {
+      debugger;
       this.prendasService.getPrenda(this.idPrendas).subscribe(
         response => {
           this.prendas = response;
@@ -60,6 +61,7 @@ export class EditPaginaprendasComponent implements OnInit {
 
   save() {
     const newPrendas: Prendas = Object.assign({}, this.prendasForm.value);
+    debugger
     if (newPrendas.id) {
       this.prendasService.editPrenda(newPrendas).subscribe((response) => {
         this.redirectList(response);

@@ -52,10 +52,10 @@ public class PrendasController {
 	 * @return el contacto cuyo id sea el pasado por parámetros.
 	 */
 
-	@GetMapping("/getPrendas")
+	@GetMapping("/getPrenda")
 	@PreAuthorize("hasAnyAuthority('PRENDAS')")
 	public ResponseEntity<?> getPrendas(@RequestParam(value = "id") Integer id) {
-		LOGGER.info("getPrendas in progress...");
+		LOGGER.info("getPrenda in progress...");
 		PrendasDTO prendas = null;
 		Map<String, Object> response = new HashMap<>();
 		ResponseEntity<?> re = null;
