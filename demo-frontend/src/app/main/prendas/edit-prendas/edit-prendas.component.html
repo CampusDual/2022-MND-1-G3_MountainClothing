@@ -1,0 +1,80 @@
+<form [formGroup]="prendasForm" (ngSubmit)="save()" class="h-full">
+    <div fxLayout="column" fxLayoutGap="20px" class="form-content">
+      <div class="input-row">
+        <mat-card fxFlex>
+          <mat-card-header>
+            <mat-card-title>{{ 'form.prendas' | translate }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+              <mat-form-field fxFlex>
+                <input matInput type="number" color="primary" placeholder="{{ 'table.prendas.id' | translate }}"
+                  formControlName="id" name="prendas-id" required />
+                  <mat-error>{{'idrequired'| translate}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-row">
+              <mat-form-field fxFlex>
+                <input matInput type="text" color="primary" placeholder="{{ 'table.prendas.color' | translate }}"
+                  formControlName="color" name="prendas-color" required />
+                  <mat-error>
+                    {{'colorrequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex>
+                <input matInput type="text" color="primary" placeholder="{{ 'table.prendas.nombre' | translate }}"
+                  formControlName="nombre" name="prendas-nombre" required />
+                  <mat-error>{{'prendas-required'| translate}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="input-row">
+              <mat-form-field fxFlex>
+                <input matInput type="price" color="primary" placeholder="{{ 'table.prendas.precio' | translate }}"
+                  formControlName="precio" name="prendas-precio" required />
+                  <mat-error>
+                    {{'preciorequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex>
+                <input matInput type="text" color="primary" placeholder="{{ 'table.prendas.prendas' | translate }}"
+                  formControlName="prendas" name="prendas-prendas" required />
+                  <mat-error>
+                    {{'prendasrequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex>
+                <input matInput type="text" color="primary" placeholder="{{ 'table.prendas.sexo' | translate }}"
+                  formControlName="sexo" name="prendas-sexo" required />
+                  <mat-error>
+                    {{'sexorequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex>
+                <input matInput type="text" color="primary" placeholder="{{ 'table.prendas.tallas' | translate }}"
+                  formControlName="tallas" name="prendas-tallas" required />
+                  <mat-error>
+                    {{'tallasrequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+              <mat-form-field fxFlex>
+                <input matInput type="number" color="primary" placeholder="{{ 'table.prendas.unidades' | translate }}"
+                  formControlName="unidades" name="prendas-unidades" required />
+                  <mat-error>
+                    {{'unidadesrequired'| translate}}
+                  </mat-error>
+              </mat-form-field>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            <div fclass="input-row" xLayoutGap="20px" fxLayoutAlign="center center">
+              <button fxFlex="25" fxFlex.xs="30" mat-raised-button type="button" (click)="cancel()"
+                [formNoValidate]="true">{{ 'button.cancel' | translate }}</button>
+              <button fxFlex="25" fxFlex.xs="30" mat-raised-button type="submit" color="primary"
+                [disabled]="!prendasForm.valid">{{ 'button.save' | translate }}</button>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+  </form>
+  
