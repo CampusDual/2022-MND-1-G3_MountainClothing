@@ -77,6 +77,7 @@ export class AuthService {
   }
 
   getUserName() {
+    debugger
     return this.jwtHelper.decodeToken(this.getToken()).user_name;
   }
 

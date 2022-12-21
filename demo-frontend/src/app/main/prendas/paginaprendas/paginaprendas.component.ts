@@ -18,6 +18,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Prendas } from 'src/app/model/prendasweb';
 import { PrendasDataSource } from 'src/app/model/datasource/prendas.datasource';
 import { PrendasService } from 'src/app/services/prendas.service';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   // selector: 'app-paginaprendas',
@@ -39,7 +40,7 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
   fields = ['nombre', 'color', 'precio', 'prendas', 'sexo', 'tallas', 'unidades'];
 
   selection = new SelectionModel<Prendas>(true, []);
-  error = false; 
+  error = false;
 
   @ViewChild('edit') editTemplate: any;
   highlightedRow: Prendas;
@@ -52,7 +53,8 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
     private prendasService: PrendasService,
     private translate: TranslateService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -124,8 +126,8 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
     this.isAllSelected()
       ? this.selection.clear()
       : this.dataSource.prendasSubject.value.forEach((row) =>
-          this.selection.select(row)
-        );
+        this.selection.select(row)
+      );
   }
 
   onDelete() {
@@ -154,16 +156,16 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
       this.prendasService.deletePrenda(prendas.id).subscribe((response) => {
         console.log(response)
         if (response.responseCode !== 'OK') {
-           this.error = true;
-         } else {
+          this.error = true;
+        } else {
           this.loadPrendasPage();
-         }
+        }
       });
     } else {
       this.prendasService.deletePrenda(prendas.id).subscribe((response) => {
         console.log(response);
         if (response.responseCode !== 'OK') {
-           this.error = true;
+          this.error = true;
         }
         this.delete();
       });
@@ -172,6 +174,17 @@ export class PaginaprendasComponent implements OnInit, AfterViewInit {
 
   onAdd() {
     this.router.navigate(['/prendas/add']);
+  }
+
+  isAuthenticated() {
+    let a = this.authService.getRoles();
+    debugger
+    if (a.includes("STOCKS")) {
+      return true;
+    }
+
+    return false;
+
   }
 
   onEdit(row: Prendas) {
