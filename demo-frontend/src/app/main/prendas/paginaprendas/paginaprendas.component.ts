@@ -28,6 +28,7 @@ import { AuthService } from 'src/app/auth/auth.service';
 export class PaginaprendasComponent implements OnInit, AfterViewInit {
   dataSource: PrendasDataSource;
   displayedColumns = [
+    'select',
     'nombre',
     'color',
     'precio',

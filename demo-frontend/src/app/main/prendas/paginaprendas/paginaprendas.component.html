@@ -28,9 +28,8 @@
     <div class="mat-elevation-z8 table-responsive">
         <table mat-table [dataSource]="dataSource" matSort matSortActive="nombre" matSortDirection="asc"
             matSortDisableClear class="w-full">
-            Checkbox Column
 
-
+            <!--Checkbox Column -->
             <ng-container matColumnDef="select">
                 <th id="header" mat-header-cell *matHeaderCellDef>
                     <mat-checkbox (change)="$event ? masterToggle() : null"
