@@ -19,36 +19,13 @@
                 -->
 
                     <div class="input-row">
-                       
-                        <mat-form-field fxFlex>
-                            <input matInput type="text" color="primary"
-                                placeholder="{{ 'table.prendas.color' | translate }}" formControlName="color"
-                                name="prendas-color" required />
-                            <mat-error>
-                                {{'colorrequired'| translate}}
-                            </mat-error>
-                        </mat-form-field>
-                       
+
                         <mat-form-field fxFlex>
                             <input matInput type="text" color="primary"
                                 placeholder="{{ 'table.prendas.nombre' | translate }}" formControlName="nombre"
-                                name="prendas-nombre" required/>
-                                <mat-error>
-                                    {{'nombrerequired'| translate}}
-                                </mat-error>
-                        </mat-form-field>
-
-                    </div>
-
-
-                    <div class="input-row">
-
-                        <mat-form-field fxFlex>
-                            <input matInput type="price" color="primary"
-                                placeholder="{{ 'table.prendas.precio' | translate }}" formControlName="precio"
-                                name="prendas-precio" required />
-                                <mat-error>
-                                {{'preciorequired'| translate}}
+                                name="prendas-nombre" required />
+                            <mat-error>
+                                {{'nombrerequired'| translate}}
                             </mat-error>
                         </mat-form-field>
 
@@ -61,6 +38,37 @@
                             </mat-error>
                         </mat-form-field>
 
+                    </div>
+
+
+
+                    <div class="input-row">
+
+                        <mat-form-field fxFlex>
+                            <input matInput type="text" color="primary"
+                                placeholder="{{ 'table.prendas.color' | translate }}" formControlName="color"
+                                name="prendas-color" required />
+                            <mat-error>
+                                {{'colorrequired'| translate}}
+                            </mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field fxFlex>
+                            <input matInput type="price" color="primary"
+                                placeholder="{{ 'table.prendas.precio' | translate }}" formControlName="precio"
+                                name="prendas-precio" required />
+                            <mat-error>
+                                {{'preciorequired'| translate}}
+                            </mat-error>
+                        </mat-form-field>
+
+                        
+
+                    </div>
+
+                    <div class="input-row">
+
                         <mat-form-field fxFlex>
                             <input matInput type="text" color="primary"
                                 placeholder="{{ 'table.prendas.sexo' | translate }}" formControlName="sexo"
@@ -70,15 +78,32 @@
                             </mat-error>
                         </mat-form-field>
 
+
+
                         <mat-form-field fxFlex>
+                            <mat-label>{{ 'table.prendas.tallas' | translate }}</mat-label>
+                            <mat-select formControlName="tallas" name="prendas-tallas">
+                                <mat-option *ngFor="let talla of tallas" [value]="talla.value">
+                                    {{talla.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+
+
+                    <!-- <mat-form-field fxFlex>
                             <input matInput type="text" color="primary"
                                 placeholder="{{ 'table.prendas.tallas' | translate }}" formControlName="tallas"
                                 name="prendas-tallas" required />
                             <mat-error>
                                 {{'tallasrequired'| translate}}
                             </mat-error>
-                        </mat-form-field>
-                        
+                        </mat-form-field> -->
+
+                    <div class="input-row">
+
                         <mat-form-field fxFlex>
                             <input matInput type="number" color="primary"
                                 placeholder="{{ 'table.prendas.unidades' | translate }}" formControlName="unidades"
@@ -89,6 +114,8 @@
                         </mat-form-field>
 
                     </div>
+
+
                 </mat-card-content>
                 <mat-card-actions>
                     <div fclass="input-row" xLayoutGap="20px" fxLayoutAlign="center center">
@@ -99,7 +126,7 @@
                     </div>
 
                 </mat-card-actions>
-        
+
             </mat-card>
 
         </div>

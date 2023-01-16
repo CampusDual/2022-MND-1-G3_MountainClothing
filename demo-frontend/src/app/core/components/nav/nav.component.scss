@@ -14,6 +14,7 @@ $sidenav-width: 320px; // 240px;
 
 .toolbar-title {
   margin: 0 16px 0 16px;
+  color: white;
 }
 
 .mat-subheader {
@@ -23,4 +24,12 @@ $sidenav-width: 320px; // 240px;
 
 .app-nav-list-icon {
   margin: 0 12px 0 12px;
+}
+
+.color {
+  background-color: #d8ae5e;
+}
+
+.tipocolor {
+  color: white;
 }

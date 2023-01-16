@@ -46,7 +46,7 @@
 
 
             <ng-container matColumnDef="nombre">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.nombre" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="nombre">
@@ -55,16 +55,16 @@
             </ng-container>
 
             <ng-container matColumnDef="precio">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.precio" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="precio">
-                    {{ row.precio }}
+                    {{ row.precio }} €
                 </mat-cell>
             </ng-container>
 
             <ng-container matColumnDef="color">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.color" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="color">
@@ -73,7 +73,7 @@
             </ng-container>
 
             <ng-container matColumnDef="prendas">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.prendas" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="prendas">
@@ -82,7 +82,7 @@
             </ng-container>
 
             <ng-container matColumnDef="sexo">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.sexo" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="sexo">
@@ -91,7 +91,7 @@
             </ng-container>
 
             <ng-container matColumnDef="tallas">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.tallas" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="tallas">
@@ -100,7 +100,7 @@
             </ng-container>
 
             <ng-container matColumnDef="unidades">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                <mat-header-cell *matHeaderCellDef mat-sort-header class="tamanofuente">
                     {{ "table.prendas.unidades" | translate }}
                 </mat-header-cell>
                 <mat-cell *matCellDef="let row" data-label="unidades">

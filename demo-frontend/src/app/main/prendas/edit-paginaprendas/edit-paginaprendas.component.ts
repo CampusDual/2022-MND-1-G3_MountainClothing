@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Prendas } from 'src/app/model/prendasweb';
 import { LoggerService } from 'src/app/services/logger.service';
 import { PrendasService } from 'src/app/services/prendas.service';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-edit-paginaprendas',
@@ -16,6 +17,13 @@ export class EditPaginaprendasComponent implements OnInit {
   prendasForm: FormGroup;
   prendas: Prendas;
   errores: string[];
+  tallas: tallas[] = [
+   {value: 'XS', viewValue: 'XS'},
+   {value: 'S', viewValue: 'S'},
+   {value: 'M', viewValue: 'M'},
+   {value: 'L', viewValue: 'L'},
+   {value: 'XL', viewValue: 'XL'},
+ ];
 
   constructor(
     private fb: FormBuilder,
@@ -95,3 +103,10 @@ export class EditPaginaprendasComponent implements OnInit {
 
 }
 
+interface tallas {
+
+  value: string;
+
+  viewValue: string;
+
+}

@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TranslateModule } from '@ngx-translate/core';
 import { PaginaprendasComponent } from './paginaprendas/paginaprendas.component';
+import {MatSelectModule} from '@angular/material/select';
 
 import { EditPaginaprendasComponent } from './edit-paginaprendas/edit-paginaprendas.component';
 
@@ -30,6 +31,7 @@ import { EditPaginaprendasComponent } from './edit-paginaprendas/edit-paginapren
   imports: [
     CommonModule,
     PrendasRoutingModule,
+    MatSelectModule,
     ReactiveFormsModule,
     ContactsRoutingModule,
     MatFormFieldModule,
