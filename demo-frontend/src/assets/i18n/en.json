@@ -10,6 +10,9 @@
   "demo": {
     "title": "Menu"
   },
+  "home": {
+    "title": "Welcome to Mountain Clothing Ltd.'s Management Platform"
+  },
   "menu": {
     "home": "Home",
     "contacts": "Contacts",
@@ -42,7 +45,7 @@
   },
   "form": {
     "contact": "Contact",
-    "prendas": "Enter New Clothe Data"
+    "prendas": "Enter New Garment"
   },
   "button": {
     "cancel": "Cancel",

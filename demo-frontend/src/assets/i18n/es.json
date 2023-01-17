@@ -10,6 +10,9 @@
   "demo": {
     "title": "Menú"
   },
+  "home": {
+    "title": "Bienvenido a la Plataforma de Gestión de Prendas de Mountain Clothing S.L."
+  },
   "menu": {
     "home": "Home",
     "contacts": "Contactos",
