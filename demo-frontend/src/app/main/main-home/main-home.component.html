@@ -1,8 +1,8 @@
+<ng-container style=flex-direction:column>
+    
+    <h2 style="text-align: center" class="color-texto"> {{ 'home.title' | translate }} </h2>
 
-<h2 style="text-align: center" class="color-texto"> {{ 'home.title' | translate }} </h2>
-
-
-<!--
+    <!--
 <ngx-charts-bar-vertical
     [view]="[1000,400]"
     [results]="saleData"
@@ -18,7 +18,62 @@
 </ngx-charts-bar-vertical>
 -->
 
+    <img src=".\assets\images\informacioncontacto.png" alt="imagen-home" class="imagen-home">
 
-<div>
-    <img src=".\assets\images\informacioncontacto.jpg" alt="imagen-home" class="imagen-home">
-</div>
+    <div class="contenedor-global"> <!--Contenedor general-->
+        <div class="contenedor-interno"> <!-- Primera columna-->
+            
+            <div> <!-- Apartado 1-->
+                <img src=".\assets\images\ubicacion.png" alt="imagen-ubiacion">
+                <a class="color-texto"
+                    href="https://www.google.es/maps/place/C.+Real,+35,+15003+A+Coru%C3%B1a,+La+Coru%C3%B1a/@43.3698426,-8.4022904,17z/data=!3m1!4b1!4m5!3m4!1s0xd2e7c7ef6520e91:0x8005630a67f7df40!8m2!3d43.3698426!4d-8.4001017"><span>
+                        C/Real 35, A Coruña</span></a>
+            </div>
+
+            <div> <!-- Apartado 2-->
+                <img src=".\assets\images\ubicacion.png" alt="imagen-ubiacion">
+                <a class="color-texto"
+                    href="https://www.google.es/maps/place/Marineda+City/@43.3449886,-8.4299346,17z/data=!3m1!4b1!4m5!3m4!1s0xd2e7cec2e25a443:0x63e9746f582d47a4!8m2!3d43.3449886!4d-8.4277459"><span>
+                        C.C. Marineda City, A Coruña</span></a>
+            </div>
+
+            <div> <!-- Apartado 3-->
+                <img src=".\assets\images\ubicacion.png" alt="imagen-ubiacion">
+                <a class="color-texto"
+                    href="https://www.google.es/maps/place/R.+Compostela,+28,+15004+A+Coru%C3%B1a/@43.3658207,-8.4081137,17z/data=!3m1!4b1!4m5!3m4!1s0xd2e7c8790b3ce05:0x6672b001ca61f0c1!8m2!3d43.3658207!4d-8.405925"><span>
+                        C/ Compostela 28, A Coruña</span></a>
+            </div>
+
+        </div> <!-- Cierre primera columna-->
+
+
+        <div class="contenedor-interno">
+            
+
+            <div>
+                <img src=".\assets\images\imagentelefono.png" alt="imagen-telefono">
+                <span class="color-texto">981 00 11 22</span>
+            </div>
+
+            <div>
+                <img class="imagencorreo" src=".\assets\images\imagencorreo.png" alt="imagen-correo">
+                <span class="color-texto"> clientes@mountainclothing.com </span>
+            </div>
+
+            <div>
+                <img class="imagentwitter" src=".\assets\images\imagentwitter.png" alt="imagen-twitter">
+                <span class="color-texto">@mountaingclothing </span>
+            </div>
+
+            <div>
+                <img class="imageninstagram" src=".\assets\images\imageninstagram.png" alt="imagen-instagram">
+                <span class="color-texto">@mountaingclothing </span>
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</ng-container>

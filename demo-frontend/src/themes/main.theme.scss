@@ -25,7 +25,7 @@ $custom-typography: mat-typography-config(
 @import "./demo.theme";
 
 $primary: mat-palette($mat-black, 900);
-$accent:  mat-palette($mat-indigo, 500, A100, A400);
+$accent:  mat-palette($mat-yellow, 500, A100, A400);
 $warn:    mat-palette($mat-red, 600);
 
 $theme: mat-light-theme($primary, $accent, $warn);
@@ -64,13 +64,13 @@ body {
 
 .list-item-active {
   font-weight: bold;
-  color: mat-color($accent, darker) !important;
-  background: rgba(0, 47, 255, 0.12);
+  color: #d8ae5e !important;
+  background: rgba(0, 0, 0, 0.151);
 }
 
 .row-link:hover {
-  background-color: rgba(0, 0, 0, .1);
-  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.151);
+  cursor: hand;
 }
 
 .row-link:focus {

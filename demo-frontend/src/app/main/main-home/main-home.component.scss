@@ -27,3 +27,28 @@
 .color-texto {
   color: #d8ae5e;
 }
+
+.contenedor-global {
+  flex-direction: row;
+  display: flex;
+}
+
+.contenedor-interno {
+  margin: 8px auto 8px auto;
+  flex-direction:column;
+}
+
+.imagencorreo {
+  width: 57px;
+  height: 44px;
+}
+
+.imagentwitter {
+  width: 50px;
+  height: 45px;
+}
+
+.imageninstagram {
+  width: 52px;
+  height: 47px;
+}
