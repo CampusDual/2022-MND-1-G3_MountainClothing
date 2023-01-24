@@ -18,7 +18,7 @@ export const API_CONFIG = {
 
   // Prendas API
   getPrendas: environment.prendasBaseUrl + '/getPrendas',
-  getPrenda: environment.prendasBaseUrl + '/getPrendas',
+  getPrenda: environment.prendasBaseUrl + '/getPrenda',
   createPrendas: environment.prendasBaseUrl + '/createPrendas',
   editPrendas: environment.prendasBaseUrl + '/editPrendas',
   deletePrendas: environment.prendasBaseUrl + '/deletePrendas',

@@ -38,6 +38,7 @@ export class EditPaginaprendasComponent implements OnInit {
   ngOnInit() {
     this.createFormGroup();
     this.idPrendas = this.route.snapshot.params['id'];
+    debugger
     if (this.idPrendas) {
       debugger;
       this.prendasService.getPrenda(this.idPrendas).subscribe(

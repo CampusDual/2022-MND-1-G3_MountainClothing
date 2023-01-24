@@ -27,7 +27,7 @@ export class PrendasService {
   }
 
   public getPrenda(id: number): Observable<Prendas> {
-    const url = API_CONFIG.getPrendas;
+    const url = API_CONFIG.getPrenda;
     const headers = new HttpHeaders({
       'Content-type': 'charset=utf-8',
       Authorization: 'Basic ' + Buffer.from(`${environment.clientName}:${environment.clientSecret}`, 'utf8').toString('base64'),
